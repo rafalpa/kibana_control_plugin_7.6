@@ -17,7 +17,7 @@
  * under the License.
  */
 
-import { esFilters, IndexPattern, TimefilterSetup } from '../../../../../plugins/data/public';
+import { esFilters, IndexPattern, TimefilterSetup } from '../../../../src/plugins/data/public';
 import { SearchSource as SearchSourceClass, SearchSourceFields } from '../legacy_imports';
 
 export function createSearchSource(

@@ -24,7 +24,7 @@ import { shallow } from 'enzyme';
 // @ts-ignore
 import { findTestSubject } from '@elastic/eui/lib/test';
 
-import { mountWithIntl, shallowWithIntl } from 'test_utils/enzyme_helpers';
+import { mountWithIntl, shallowWithIntl } from '../../../../../src/test_utils/public/enzyme_helpers';
 import { getDepsMock } from './__tests__/get_deps_mock';
 import { getIndexPatternMock } from './__tests__/get_index_pattern_mock';
 import { ListControlEditor } from './list_control_editor';

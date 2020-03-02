@@ -21,7 +21,7 @@ import React, { ComponentType } from 'react';
 import { injectI18n } from '@kbn/i18n/react';
 import { EuiFormRow } from '@elastic/eui';
 import { InjectedIntlProps } from 'react-intl';
-import { IndexPatternSelect } from 'src/plugins/data/public';
+import { IndexPatternSelect } from '../../../../../src/plugins/data/public';
 
 export type IndexPatternSelectFormRowUiProps = InjectedIntlProps & {
   onChange: (opt: any) => void;

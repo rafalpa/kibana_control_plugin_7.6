@@ -20,7 +20,7 @@
 import React from 'react';
 import sinon from 'sinon';
 import { shallow } from 'enzyme';
-import { mountWithIntl } from 'test_utils/enzyme_helpers';
+import { mountWithIntl } from '../../../../../src/test_utils/public/enzyme_helpers';
 // @ts-ignore
 import { findTestSubject } from '@elastic/eui/lib/test';
 

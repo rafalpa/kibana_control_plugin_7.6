@@ -24,7 +24,7 @@ import {
   esFilters,
   IndexPattern,
   FilterManager as QueryFilterManager,
-} from '../../../../../../plugins/data/public';
+} from '../../../../../src/plugins/data/public';
 
 export class PhraseFilterManager extends FilterManager {
   constructor(

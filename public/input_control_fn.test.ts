@@ -20,7 +20,7 @@
 import { createInputControlVisFn } from './input_control_fn';
 
 // eslint-disable-next-line
-import { functionWrapper } from '../../../../plugins/expressions/public/functions/tests/utils';
+import { functionWrapper } from '../../../src/plugins/expressions/public/functions/tests/utils';
 
 jest.mock('./legacy_imports.ts');
 

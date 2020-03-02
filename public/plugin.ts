@@ -16,11 +16,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { PluginInitializerContext, CoreSetup, CoreStart, Plugin } from 'kibana/public';
+import { PluginInitializerContext, CoreSetup, CoreStart, Plugin } from '../../../src/core/public/index';
 
-import { DataPublicPluginSetup, DataPublicPluginStart } from 'src/plugins/data/public';
-import { Plugin as ExpressionsPublicPlugin } from '../../../../plugins/expressions/public';
-import { VisualizationsSetup, VisualizationsStart } from '../../visualizations/public';
+import { DataPublicPluginSetup, DataPublicPluginStart } from '../../../src/plugins/data/public';
+import { Plugin as ExpressionsPublicPlugin } from '../../../src/plugins/expressions/public';
+import { VisualizationsSetup, VisualizationsStart } from '../../../src/legacy/core_plugins/visualizations/public/index'//'../../visualizations/public';
 import { createInputControlVisFn } from './input_control_fn';
 import { createInputControlVisTypeDefinition } from './input_control_vis_type';
 

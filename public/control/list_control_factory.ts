@@ -26,7 +26,7 @@ import { PhraseFilterManager } from './filter_manager/phrase_filter_manager';
 import { createSearchSource } from './create_search_source';
 import { ControlParams } from '../editor_utils';
 import { InputControlVisDependencies } from '../plugin';
-import { IFieldType, TimefilterSetup } from '../../../../../plugins/data/public';
+import { IFieldType, TimefilterSetup } from '../../../../src/plugins/data/public';
 
 function getEscapedQuery(query = '') {
   // https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-regexp-query.html#_standard_operators

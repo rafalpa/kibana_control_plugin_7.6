@@ -20,7 +20,7 @@
 import _ from 'lodash';
 
 import { FilterManager } from './filter_manager';
-import { esFilters, IFieldType } from '../../../../../../plugins/data/public';
+import { esFilters, IFieldType } from '../../../../../src/plugins/data/public';
 
 interface SliderValue {
   min?: string | number;

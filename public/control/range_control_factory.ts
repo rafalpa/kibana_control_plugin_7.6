@@ -26,7 +26,7 @@ import { RangeFilterManager } from './filter_manager/range_filter_manager';
 import { createSearchSource } from './create_search_source';
 import { ControlParams } from '../editor_utils';
 import { InputControlVisDependencies } from '../plugin';
-import { IFieldType, TimefilterSetup } from '../.../../../../../../plugins/data/public';
+import { IFieldType, TimefilterSetup } from '../.../../../../../src/plugins/data/public';
 
 const minMaxAgg = (field?: IFieldType) => {
   const aggBody: any = {};

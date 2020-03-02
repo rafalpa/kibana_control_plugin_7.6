@@ -17,6 +17,19 @@
  * under the License.
  */
 
+// import { resolve } from 'path';
+
+// export default function (kibana) {
+//   return new kibana.Plugin({
+//     uiExports: {
+//       visTypes: [
+//         'plugins/emca_control_vis/public/input_control_vis_type'
+//       ],
+//       styleSheetPaths: resolve(__dirname, 'public/index.scss'),
+//     }
+//   });
+// }
+
 import { resolve } from 'path';
 import { Legacy } from 'kibana';
 

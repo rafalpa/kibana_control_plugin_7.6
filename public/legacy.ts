@@ -17,8 +17,8 @@
  * under the License.
  */
 
-import { PluginInitializerContext } from 'kibana/public';
-import { npSetup, npStart } from 'ui/new_platform';
+import { PluginInitializerContext } from '../../../src/core/public/index';
+import { npSetup, npStart } from '../../../src/legacy/ui/public/new_platform/index'//'ui/new_platform';
 
 import { plugin } from '.';
 
@@ -29,7 +29,7 @@ import {
 import {
   setup as visualizationsSetup,
   start as visualizationsStart,
-} from '../../visualizations/public/np_ready/public/legacy';
+} from '../../../src/legacy/core_plugins/visualizations/public/np_ready/public/legacy';
 
 const setupPlugins: Readonly<InputControlVisPluginSetupDependencies> = {
   expressions: npSetup.plugins.expressions,

@@ -23,7 +23,7 @@ import {
   ExpressionFunction,
   KibanaDatatable,
   Render,
-} from '../../../../plugins/expressions/public';
+} from '../../../src/plugins/expressions/public/index';
 
 const name = 'input_control_vis';
 

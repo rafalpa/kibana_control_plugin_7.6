@@ -1,4 +1,10 @@
 {
   "name": "emca_control_vis",
-  "version": "kibana"
+  "version": "7.6.0",
+  "description": "contros that filters drop-down based on input so far",
+  "main": "index.js",
+  "kibana": {
+    "version": "7.6.0",
+    "templateVersion": "1.0.0"
+  }
 }

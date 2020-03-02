@@ -28,7 +28,7 @@ import {
   IIndexPattern,
   IFieldType,
   IndexPatternSelect,
-} from '../../../../../../plugins/data/public';
+} from '../../../../../src/plugins/data/public';
 import { InputControlVisDependencies } from '../../plugin';
 
 interface RangeControlEditorProps {

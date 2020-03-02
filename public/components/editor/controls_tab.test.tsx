@@ -18,7 +18,7 @@
  */
 
 import React from 'react';
-import { shallowWithIntl, mountWithIntl } from 'test_utils/enzyme_helpers';
+import { shallowWithIntl, mountWithIntl } from '../../../../../src/test_utils/public/enzyme_helpers';
 // @ts-ignore
 import { findTestSubject } from '@elastic/eui/lib/test';
 import { getDepsMock } from './__tests__/get_deps_mock';

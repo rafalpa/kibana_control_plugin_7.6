@@ -24,7 +24,7 @@ import { InjectedIntlProps } from 'react-intl';
 import { injectI18n, FormattedMessage } from '@kbn/i18n/react';
 import { EuiFormRow, EuiComboBox, EuiComboBoxOptionProps } from '@elastic/eui';
 
-import { IIndexPattern, IFieldType } from '../../../../../../plugins/data/public';
+import { IIndexPattern, IFieldType } from '../../../../../src/plugins/data/public';
 
 interface FieldSelectUiState {
   isLoading: boolean;

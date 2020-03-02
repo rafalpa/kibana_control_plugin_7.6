@@ -43,7 +43,7 @@ import {
   ControlParamsOptions,
 } from '../../editor_utils';
 import { getLineageMap, getParentCandidates } from '../../lineage';
-import { IIndexPattern } from '../../../../../../plugins/data/public';
+import { IIndexPattern } from '../../../../../src/plugins/data/public';
 import { VisOptionsProps } from '../../legacy_imports';
 import { InputControlVisDependencies } from '../../plugin';
 

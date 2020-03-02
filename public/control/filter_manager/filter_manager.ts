@@ -23,7 +23,7 @@ import {
   FilterManager as QueryFilterManager,
   IndexPattern,
   esFilters,
-} from '../../../../../../plugins/data/public';
+} from '../../../../../src/plugins/data/public';
 
 export abstract class FilterManager {
   constructor(

@@ -22,7 +22,7 @@ import { i18n } from '@kbn/i18n';
 import { createInputControlVisController } from './vis_controller';
 import { getControlsTab } from './components/editor/controls_tab';
 import { OptionsTab } from './components/editor/options_tab';
-import { Status, defaultFeedbackMessage } from '../../visualizations/public';
+import { Status, defaultFeedbackMessage } from '../../../src/legacy/core_plugins/visualizations/public';
 import { InputControlVisDependencies } from './plugin';
 
 export function createInputControlVisTypeDefinition(deps: InputControlVisDependencies) {
@@ -30,9 +30,9 @@ export function createInputControlVisTypeDefinition(deps: InputControlVisDepende
   const ControlsTab = getControlsTab(deps);
 
   return {
-    name: 'input_control_vis',
+    name: 'emca_control_vis',
     title: i18n.translate('inputControl.register.controlsTitle', {
-      defaultMessage: 'Controls',
+      defaultMessage: 'EmcaControls',
     }),
     icon: 'visControls',
     description: i18n.translate('inputControl.register.controlsDescription', {
@@ -56,7 +56,7 @@ export function createInputControlVisTypeDefinition(deps: InputControlVisDepende
         {
           name: 'controls',
           title: i18n.translate('inputControl.register.tabs.controlsTitle', {
-            defaultMessage: 'Controls',
+            defaultMessage: 'EmcaControls',
           }),
           editor: ControlsTab,
         },

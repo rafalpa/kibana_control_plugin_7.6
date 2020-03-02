@@ -19,7 +19,7 @@
 
 import React from 'react';
 import sinon from 'sinon';
-import { shallowWithIntl } from 'test_utils/enzyme_helpers';
+import { shallowWithIntl } from '../../../../../src/test_utils/public/enzyme_helpers';
 
 import { ListControl } from './list_control';
 

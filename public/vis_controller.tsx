@@ -20,7 +20,7 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 
-import { I18nStart } from 'kibana/public';
+import { I18nStart } from '../../../src/core/public/index' //'kibana/public';
 import { Vis, VisParams, SearchSource } from './legacy_imports';
 
 import { InputControlVis } from './components/vis/input_control_vis';
@@ -30,7 +30,7 @@ import { ControlParams } from './editor_utils';
 import { RangeControl } from './control/range_control_factory';
 import { ListControl } from './control/list_control_factory';
 import { InputControlVisDependencies } from './plugin';
-import { FilterManager, esFilters } from '../../../../plugins/data/public';
+import { FilterManager, esFilters } from '../../../src/plugins/data/public';
 
 export const createInputControlVisController = (deps: InputControlVisDependencies) => {
   return class InputControlVisController {
