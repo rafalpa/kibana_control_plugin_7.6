@@ -30,9 +30,9 @@ export function createInputControlVisTypeDefinition(deps: InputControlVisDepende
   const ControlsTab = getControlsTab(deps);
 
   return {
-    name: 'emca_control_vis',
+    name: 'filter_control_vis',
     title: i18n.translate('inputControl.register.controlsTitle', {
-      defaultMessage: 'EmcaControls',
+      defaultMessage: 'FilterControls',
     }),
     icon: 'visControls',
     description: i18n.translate('inputControl.register.controlsDescription', {
@@ -56,7 +56,7 @@ export function createInputControlVisTypeDefinition(deps: InputControlVisDepende
         {
           name: 'controls',
           title: i18n.translate('inputControl.register.tabs.controlsTitle', {
-            defaultMessage: 'EmcaControls',
+            defaultMessage: 'FilterControls',
           }),
           editor: ControlsTab,
         },

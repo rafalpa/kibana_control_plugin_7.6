@@ -41,6 +41,7 @@ export const createInputControlVisController = (deps: InputControlVisDependencie
     filterManager: FilterManager;
     updateSubsciption: any;
     visParams?: VisParams;
+    filterid: string;
 
     constructor(public el: Element, public vis: Vis) {
       this.controls = [];
@@ -51,17 +52,19 @@ export const createInputControlVisController = (deps: InputControlVisDependencie
       this.updateSubsciption = this.filterManager
         .getUpdates$()
         .subscribe(this.queryBarUpdateHandler);
+
+      this.filterid = this.vis.title;
     }
 
     async render(visData: any, visParams: VisParams, status: any) {
-      if (status.params || (visParams.useTimeFilter && status.time)) {
+      // if (status.params || (visParams.useTimeFilter && status.time)) {
         this.visParams = visParams;
         this.controls = [];
         this.controls = await this.initControls();
         const [{ i18n }] = await deps.core.getStartServices();
         this.I18nContext = i18n.Context;
         this.drawVis();
-      }
+      // }
     }
 
     destroy() {
@@ -158,6 +161,11 @@ export const createInputControlVisController = (deps: InputControlVisDependencie
           return filter !== null;
         });
 
+      newFilters.forEach((f) => {
+        f.meta.filterid = this.filterid
+      });
+
+
       stagedControls.forEach(control => {
         // to avoid duplicate filters, remove any old filters for control
         control.filterManager.findFilters().forEach(existingFilter => {
@@ -171,7 +179,9 @@ export const createInputControlVisController = (deps: InputControlVisDependencie
       this.controls.map(control => {
         if (control.hasAncestors() && control.hasUnsetAncestor()) {
           control.filterManager.findFilters().forEach(existingFilter => {
-            this.filterManager.removeFilter(existingFilter);
+            if (existingFilter.meta.emcaid != this.filterid) {
+              newFilters.push(existingFilter)
+            }
           });
         }
       });

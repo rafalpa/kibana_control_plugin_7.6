@@ -17,19 +17,6 @@
  * under the License.
  */
 
-// import { resolve } from 'path';
-
-// export default function (kibana) {
-//   return new kibana.Plugin({
-//     uiExports: {
-//       visTypes: [
-//         'plugins/emca_control_vis/public/input_control_vis_type'
-//       ],
-//       styleSheetPaths: resolve(__dirname, 'public/index.scss'),
-//     }
-//   });
-// }
-
 import { resolve } from 'path';
 import { Legacy } from 'kibana';
 
@@ -37,7 +24,7 @@ import { LegacyPluginApi, LegacyPluginInitializer } from '../../../../src/legacy
 
 const inputControlVisPluginInitializer: LegacyPluginInitializer = ({ Plugin }: LegacyPluginApi) =>
   new Plugin({
-    id: 'emca_control_vis',
+    id: 'filter_control_vis',
     require: ['kibana', 'elasticsearch', 'visualizations', 'interpreter', 'data'],
     publicDir: resolve(__dirname, 'public'),
     uiExports: {

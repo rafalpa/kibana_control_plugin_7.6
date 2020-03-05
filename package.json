@@ -1,5 +1,5 @@
 {
-  "name": "emca_control_vis",
+  "name": "filter_control_vis",
   "version": "7.6.0",
   "description": "contros that filters drop-down based on input so far",
   "main": "index.js",

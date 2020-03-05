@@ -74,6 +74,7 @@ const termsAgg = ({ field, size, direction, query }: TermsAggArgs) => {
 
 export class ListControl extends Control<PhraseFilterManager> {
   private getInjectedVar: InputControlVisDependencies['core']['injectedMetadata']['getInjectedVar'];
+  private filtersVar: InputControlVisDependencies['data']['query']['filterManager'];
   private timefilter: TimefilterSetup['timefilter'];
 
   abortController?: AbortController;
@@ -92,6 +93,7 @@ export class ListControl extends Control<PhraseFilterManager> {
     super(controlParams, filterManager, useTimeFilter, SearchSource);
     this.getInjectedVar = deps.core.injectedMetadata.getInjectedVar;
     this.timefilter = deps.data.query.timefilter.timefilter;
+    this.filtersVar =  deps.data.query.filterManager
   }
 
   fetch = async (query?: string) => {
@@ -142,15 +144,36 @@ export class ListControl extends Control<PhraseFilterManager> {
       direction: 'desc',
       query,
     });
-    const searchSource = createSearchSource(
-      this.SearchSource,
-      initialSearchSourceState,
-      indexPattern,
-      aggs,
-      this.useTimeFilter,
-      ancestorFilters,
-      this.timefilter
-    );
+    // const searchSource = createSearchSource(
+    //   this.SearchSource,
+    //   initialSearchSourceState,
+    //   indexPattern,
+    //   aggs,
+    //   this.useTimeFilter,
+    //   ancestorFilters,
+    //   this.timefilter
+    // );
+
+    const filters =  this.filtersVar.getFilters()
+
+    const searchSource = initialSearchSourceState ? new this.SearchSource(initialSearchSourceState) : new this.SearchSource();
+    // Do not not inherit from rootSearchSource to avoid picking up time and globals
+    searchSource.setParent(undefined);
+    searchSource.setField('filter', () => {
+      const activeFilters = [...filters];
+      if (this.useTimeFilter) {
+        const filter = this.timefilter.createFilter(indexPattern);
+        if (filter) {
+          activeFilters.push(filter);
+        }
+      }
+      return activeFilters;
+    });
+    searchSource.setField('size', 0);
+    searchSource.setField('index', indexPattern);
+    searchSource.setField('aggs', aggs);
+
+
     const abortSignal = this.abortController.signal;
 
     this.lastQuery = query;
@@ -169,6 +192,7 @@ export class ListControl extends Control<PhraseFilterManager> {
       );
       return;
     }
+
 
     if (query && this.lastQuery !== query) {
       // search results returned out of order - ignore results from old query
@@ -190,6 +214,8 @@ export class ListControl extends Control<PhraseFilterManager> {
     this.disabledReason = '';
   };
 
+  // >>>end of fetch = async (query?: string) => {
+
   destroy() {
     if (this.abortController) this.abortController.abort();
   }
@@ -199,12 +225,15 @@ export class ListControl extends Control<PhraseFilterManager> {
   }
 }
 
+// >>>>end of export class ListControl extends Control<PhraseFilterManager> {
+
 export async function listControlFactory(
   controlParams: ControlParams,
   useTimeFilter: boolean,
   SearchSource: SearchSourceClass,
   deps: InputControlVisDependencies
 ) {
+
   const [, { data: dataPluginStart }] = await deps.core.getStartServices();
   const indexPattern = await dataPluginStart.indexPatterns.get(controlParams.indexPattern);
 
@@ -228,5 +257,6 @@ export async function listControlFactory(
     SearchSource,
     deps
   );
+
   return listControl;
 }
